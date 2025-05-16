@@ -47,12 +47,7 @@ Das Projekt wurde erstellt, um praktische Webentwicklungserfahrung zu sammeln �
 
 Du kannst die Seite lokal starten, indem du einfach `index.html` in deinem Browser öffnest.
 
-### Optional: Online anzeigen mit GitHub Pages
-
-1. Gehe zu deinem Repository auf GitHub
-2. Klicke auf **Settings > Pages**
-3. Wähle den Branch (z. B. `main`) und das Wurzelverzeichnis (`/root`)
-4. GitHub erstellt automatisch eine URL wie:  
+###  Online anzeigen mit GitHub Pages 
    👉 `https://Zulkerr.github.io/what-sup`
 
 ---
