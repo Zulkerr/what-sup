@@ -53,7 +53,7 @@ Du kannst die Seite lokal starten, indem du einfach `index.html` in deinem Brows
 2. Klicke auf **Settings > Pages**
 3. Wähle den Branch (z. B. `main`) und das Wurzelverzeichnis (`/root`)
 4. GitHub erstellt automatisch eine URL wie:  
-   👉 `https://deinBenutzername.github.io/what-sup`
+   👉 `https://Zulkerr.github.io/what-sup`
 
 ---
 
