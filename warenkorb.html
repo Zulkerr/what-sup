@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Warenkorb | What Sup</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f7f7f7; }
+    a.back-link{ display: inline-block; margin-bottom: 20px; color:green; font-weight: bold; text-decoration:wavy;}
+    h1 { color: #333; }
+    .product { margin-bottom: 10px; padding: 10px; background: white; border-radius: 8px; }
+    .total { margin-top: 20px; font-weight: bold; }
+    .btn { background: green; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <!--<p><a href="index.html" style="text-decoration: none; color: green;">← Zurück zur Startseite</a></p>-->
+  <p><a href="index.html" class="back-link">← Zurück zur Startseite</a></p>
+  <h1>🛒 Dein Warenkorb</h1>
+
+  <div id="cart-container"></div>
+  <div class="total" id="total-price"></div>
+
+  <button class="btn" onclick="clearCart()">Warenkorb leeren</button>
+  <button class="btn" onclick="checkout()">Jetzt kaufen</button>
+
+  <script>
+      function loadCart() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const container = document.getElementById("cart-container");
+  const totalDiv = document.getElementById("total-price");
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Dein Warenkorb ist leer.</p>";
+    totalDiv.innerText = "";
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    // Fallback für alte cart-Einträge ohne quantity
+    if (!item.quantity) item.quantity = 1;
+
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+
+    const div = document.createElement("div");
+    div.className = "product";
+    div.innerHTML = `
+      <strong>${item.name}</strong><br>
+      Preis: €${item.price.toFixed(2)}<br>
+      Menge: 
+      <button onclick="changeQuantity(${index}, -1)">−</button>
+      ${item.quantity}
+      <button onclick="changeQuantity(${index}, 1)">+</button><br>
+      Zwischensumme: €${subtotal.toFixed(2)}<br>
+      <button class="btn" onclick="removeItem(${index})">Entfernen</button>
+    `;
+    container.appendChild(div);
+  });
+
+  totalDiv.innerText = `Gesamt: €${total.toFixed(2)}`;
+}
+
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      loadCart();
+    }
+
+    function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const countSpan = document.getElementById("cart-count");
+    if (countSpan) countSpan.innerText = cart.length;
+  }
+   
+   function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1); // 1 Element ab Index entfernen
+  localStorage.setItem("cart", JSON.stringify(cart));
+  loadCart();
+  updateCartCount();
+}
+
+ function changeQuantity(index, delta) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (cart[index].quantity + delta <= 0) return;
+  cart[index].quantity += delta;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  loadCart();
+  updateCartCount();
+}
+function checkout() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (cart.length === 0) {
+    alert("Dein Warenkorb ist leer.");
+    return;
+  }
+
+  window.location.href = "checkout.html"; // weiter zur Formularseite
+}
+
+
+
+
+  updateCartCount();
+
+    // Direkt beim Laden anzeigen
+    loadCart();
+  </script>
+
+</body>
+</html>

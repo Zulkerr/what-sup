@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Sup - Import & Export</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+ </head>
+ <body>
+    <header>
+     <div class="container">
+         <h1 class="logo"><a href="index.html">What Sup</a></h1>
+         <nav>
+            <ul class="nav-links">
+                <li><a href="#">Start</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#products">Produkte</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="warenkorb.html">🛒 <span id="cart-count">0</span></a></li>
+            </ul>
+         </nav>
+     </div>
+    </header>
+
+    <main>
+        <section class="hero">
+           <h2>Style kennt keine Grenzen</h2>
+           <p>What Sup bringt frische Kleidung direkt aus dem Herzen der Moderwelt.</p>
+           <a href="#" class="btn">Jetzt entdecken</a>
+        </section>
+        <section id="about" class="about">
+            <div class="container">
+                <h2>Über uns</h2>
+                <p>
+                  What Sup ist ein junges, dynamisches Modeunternehmen mit Fokus auf Import und Export
+                  moderner Kleidung. Unsere Mission ist es, stilbewussten Menschen weltweit Zugang zu
+                  hochwertiger, minimalistischer Streetwear zu ermöglichen – einfach, schnell und zuverlässig.
+                </p>
+                <p>
+                  Gegründet von kreativen Köpfen mit Leidenschaft für Fashion, steht What Sup für Qualität,
+                  Nachhaltigkeit und internationalen Stil. Wir glauben daran, dass Mode keine Grenzen kennt.
+                </p>
+            </div>
+        </section>
+
+<section id="products" class="products">
+  <div class="container">
+    <h2>Unsere Produkte</h2>
+    <div class="product-grid">
+      <!-- Produkt 1 -->
+      <div class="product-card">
+        <img src="Weißes T.jpg" alt="Weißes T-Shirt">
+        <h3>Weißes T-Shirt</h3>
+        <p>Minimalistisches Design aus 100% Baumwolle</p>
+        <span class="price">29,90 €</span>
+        <a href="product1.html" class="btn">Mehr erfahren</a>
+      </div>
+
+      <!-- Produkt 2 -->
+      <div class="product-card">
+        <img src="Sneaker.jpg" alt="Sneaker">
+        <h3>Sneaker Classic</h3>
+        <p>Bequeme Streetwear mit Style und Komfort</p>
+        <span class="price">79,90 €</span>
+        <a href="produkt2.html" class="btn">Mehr erfahren</a>
+      </div>
+
+      <!-- Produkt 3 -->
+      <div class="product-card">
+        <img src="Cap.jpg" alt="Cap">
+        <h3>Sup Cap</h3>
+        <p>Streetstyle Cap mit What Sup Logo</p>
+        <span class="price">19,90 €</span>
+        <a href="Produkt3.html" class="btn">Mehr erfahren</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Kontakt</h2>
+        <form action="#" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Dein Name" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="dein@email.com" required>
+
+            <label for="message">Nachricht</label>
+            <textarea name="message" id="message" rows="5" placeholder="Deine Nachricht .." required></textarea>
+
+            <button type="submit">Absenden</button>
+        </form>
+    </div>
+</section>
+
+    </main>
+
+    <script>
+         function updateCartCount() {
+              const cart = JSON.parse(localStorage.getItem("cart")) || [];
+              document.getElementById("cart-count").innerText = cart.length;
+         }
+
+           // Sofort beim Laden Zähler aktualisieren
+            updateCartCount();
+   </script>
+
+
+    <footer>
+        <p>&copy; 2025 What Sup. Alle Rechte vorbehalten. </p>
+    </footer>
+ </body>
+</html>

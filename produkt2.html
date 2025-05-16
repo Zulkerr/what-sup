@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sneaker Classic What Sup</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1><a href="index.html">What Sup</a></h1>
+                <nav>
+                   <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="index.html#about">Über uns</a></li>
+                    <li><a href="index.html#products">Produkte</a></li>
+                    <li><a href="index.html#contact">Kontakt</a></li>
+                    <li><a href="warenkorb.html">🛒 <span id="cart-count">0</span></a></li>
+                   </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="product-detail">
+            <div class="container">
+                <h2>Sneaker Classic</h2>
+                <img src="Sneaker.jpg" alt="Sneaker">
+                <p>
+                    Unsere Sneaker Classic kombinieren Komfort mit Stil.
+                    Perfekt für unterwegs, mit gepolsterter Sohle und urbanem Design.
+                </p>
+                <p class="price">79.90€</p>
+                <a href="#" class="btn" onclick="addToCart('Sneaker', 79.90)">In den Warenkorb</a>
+                <a href="#" class="btn">Ähnliche Produkten</a>
+            </div>
+
+        </main>
+        <script src="cart.js"></script>
+
+    </body>
+
+</html>

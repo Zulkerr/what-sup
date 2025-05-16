@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Bestellung abschließen | What Sup</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+    form { background: white; padding: 20px; border-radius: 8px; max-width: 400px; margin: auto; }
+    input, textarea { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    button { margin-top: 20px; background: green; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+
+  <h2>🛒 Bestellbestätigung</h2>
+
+  <form id="order-form">
+    <label>Vollständiger Name:</label>
+    <input type="text" required>
+
+    <label>E-Mail-Adresse:</label>
+    <input type="email" required>
+
+    <label>Lieferadresse:</label>
+    <textarea required></textarea>
+
+    <button type="submit">Jetzt bestellen</button>
+  </form>
+
+  <script>
+    document.getElementById("order-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Vielen Dank! Deine Bestellung wurde aufgenommen.\nWir senden dir eine Bestätigung per E-Mail.");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html"; // zurück zur Startseite
+    });
+  </script>
+
+</body>
+</html>
